@@ -1,8 +1,4 @@
-import {
-  FETCH_VARIETY,
-  FETCH_VARIETY_SUCCESS,
-  FETCH_VARIETY_FAILURE,
-} from '../Types/varietyTypes';
+import { FETCH_RECIPE, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE, } from '../types/recipesTypes';
 
 const initailState = {
   loading: true,
@@ -10,22 +6,22 @@ const initailState = {
   error: '',
 };
 
-const varietyReducer = (state = initailState, action) => {
+const recipeReducer = (state = initailState, action) => {
   switch (action.type) {
-    case FETCH_VARIETY:
+    case FETCH_RECIPE:
       return {
         ...state,
         loading: true,
       };
 
-    case FETCH_VARIETY_SUCCESS:
+    case FETCH_RECIPE_SUCCESS:
       return {
         loading: false,
         data: action.payload,
         error: '',
       };
 
-    case FETCH_VARIETY_FAILURE:
+    case FETCH_RECIPE_FAILURE:
       return {
         loading: true,
         data: [],
@@ -37,4 +33,4 @@ const varietyReducer = (state = initailState, action) => {
   }
 };
 
-export default varietyReducer;
+export default recipeReducer;

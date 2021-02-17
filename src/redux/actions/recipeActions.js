@@ -14,7 +14,7 @@ import { FETCH_RECIPE, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from '../typ
     payload: err,
   });
   
-  const dataRecipe = title => dispatch => {
+  const recipeFetch = title => dispatch => {
     dispatch(fetchrecipe());
     console.log('url recipe', `https://www.themealdb.com/api/json/v1/1/search.php?s=${title}`);
   
@@ -29,6 +29,6 @@ import { FETCH_RECIPE, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from '../typ
   };
   
   export {
-    fetchrecipe, fetchrecipeSuccess, fetchrecipeFailure, dataRecipe,
+    fetchrecipe, fetchrecipeSuccess, fetchrecipeFailure, recipeFetch,
   };
   
