@@ -1,4 +1,4 @@
-import { FETCH_RECIPE, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE, } from '../types/recipesTypes';
+import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE, } from '../types/recipesTypes';
 
 const initailState = {
   loading: true,
@@ -8,7 +8,7 @@ const initailState = {
 
 const recipeReducer = (state = initailState, action) => {
   switch (action.type) {
-    case FETCH_RECIPE:
+    case FETCH_RECIPE_REQUEST:
       return {
         ...state,
         loading: true,

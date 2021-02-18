@@ -1,33 +1,39 @@
-import { FETCH_CATEGORIES, FETCH_CATEGORIES_FAILURE, FETCH_CATEGORIES_SUCCESS } from '..//types/catTypes';
+import { FETCH_CATEGORIES_REQUEST, FETCH_CATEGORIES_FAILURE, FETCH_CATEGORIES_SUCCESS } from '..//types/catTypes';
   
-  const fetchCategory = () => ({
-    type: FETCH_CATEGORIES,
+  const fetchCatRequest = () => ({
+    type: FETCH_CATEGORIES_REQUEST,
   });
   
-  const fetchSuccess = data => ({
+  const fetchCatSuccess = data => ({
     type: FETCH_CATEGORIES_SUCCESS,
     payload: data,
   });
   
-  const fetchFailure = error => ({
+  const fetchCatFailure = error => ({
     type: FETCH_CATEGORIES_FAILURE,
     payload: error,
   });
+
+  const changeFilter = key => ({
+    type: 'CHANGE_FILTER',
+    payload: key,
+  });
   
-  const catFetch = () => dispatch => {
-    dispatch(fetchCategory());
+  const fetchCat = () => dispatch => {
+    dispatch(fetchCategoryRequest());
   
     fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then(response => response.json())
       .then(data => {
-        dispatch(fetchSuccess(data));
+        console.log(data);
+        dispatch(fetchCatSuccess(data));
       })
       .catch(err => {
-        dispatch(fetchFailure(err));
+        dispatch(fetchCatFailure(err));
       });
   };
   
   export {
-    fetchCategory, fetchFailure, fetchSuccess, catFetch,
+    fetchCatRequest, fetchCatSuccess, fetchCatFailure, fetchCat, changeFilter
   };
   

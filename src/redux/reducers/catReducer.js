@@ -1,4 +1,4 @@
-import { FETCH_CATEGORIES, FETCH_CATEGORIES_FAILURE, FETCH_CATEGORIES_SUCCESS } from '../Types/reduxTypes';
+import { FETCH_CATEGORIES_REQUEST, FETCH_CATEGORIES_FAILURE, FETCH_CATEGORIES_SUCCESS } from '../types/catTypes';
 
 const initailState = {
   loading: true,
@@ -8,7 +8,7 @@ const initailState = {
 
 const catReducer = (state = initailState, action) => {
   switch (action.type) {
-    case FETCH_CATEGORIES: return {
+    case FETCH_CATEGORIES_REQUEST: return {
       ...state,
       loading: true,
     };

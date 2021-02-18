@@ -1,7 +1,7 @@
-import { FETCH_RECIPE, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from '../types/recipesTypes';
+import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from '../types/recipesTypes';
   
-  const fetchrecipe = () => ({
-    type: FETCH_RECIPE,
+  const fetchrecipeRequest = () => ({
+    type: FETCH_RECIPE_REQUEST,
   });
   
   const fetchrecipeSuccess = data => ({
@@ -29,6 +29,6 @@ import { FETCH_RECIPE, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from '../typ
   };
   
   export {
-    fetchrecipe, fetchrecipeSuccess, fetchrecipeFailure, recipeFetch,
+    fetchrecipeRequest, fetchrecipeSuccess, fetchrecipeFailure, recipeFetch,
   };
   
