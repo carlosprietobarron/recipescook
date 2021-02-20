@@ -20,13 +20,13 @@ import { FETCH_CATEGORIES_REQUEST, FETCH_CATEGORIES_FAILURE, FETCH_CATEGORIES_SU
   });
   
   const fetchCat = () => dispatch => {
-    dispatch(fetchCategoryRequest());
+    dispatch(fetchCatRequest());
   
     fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
-        dispatch(fetchCatSuccess(data));
+        console.log(data.categories);
+        dispatch(fetchCatSuccess(data.categories));
       })
       .catch(err => {
         dispatch(fetchCatFailure(err));

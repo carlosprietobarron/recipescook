@@ -1,4 +1,4 @@
-import {} from '../types/filterTypes'
+import { CHANGE_FILTER } from '../types/filterTypes'
 
 const filterInitialState = {
   filter: 'All',

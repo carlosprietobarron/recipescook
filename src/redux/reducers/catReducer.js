@@ -22,7 +22,7 @@ const catReducer = (state = initailState, action) => {
     case FETCH_CATEGORIES_FAILURE: return {
       loading: true,
       data: [],
-      error: action.payload,s
+      error: action.payload,
     };
 
     default: return state;

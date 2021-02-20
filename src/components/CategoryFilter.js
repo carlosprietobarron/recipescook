@@ -1,15 +1,15 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import categories from '../resources/categories';
 
-function CategoryFilter(props) {
+function CategoryFilter({categories, updateFilter}) {
   const allCategories = ['All', ...categories];
+  
   const handleChange = e => {
-    props.updateFilter(e.target.value);
+    updateFilter(e.target.value);
   };
 
-  const MakeCategory = cat => <option>{cat}</option>;
-
+  const MakeCategory = cat => <option id={cat} key={cat} >{cat}</option>;
+  console.log("allCategories", categories);
   return (
     <div>
       <form>

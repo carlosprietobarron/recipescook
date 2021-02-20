@@ -15,7 +15,7 @@ import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from
   });
   
   const recipeFetch = title => dispatch => {
-    dispatch(fetchrecipe());
+    dispatch(fetchrecipeRequest());
     console.log('url recipe', `https://www.themealdb.com/api/json/v1/1/search.php?s=${title}`);
   
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${title}`)
