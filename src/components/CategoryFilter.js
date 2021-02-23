@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 function CategoryFilter({categories, updateFilter}) {
-  const allCategories = ['All', ...categories];
+  const allCategories = [...categories];
   
   const handleChange = e => {
     updateFilter(e.target.value);

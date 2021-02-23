@@ -2,7 +2,7 @@ import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE, } fro
 
 const initailState = {
   loading: true,
-  data: [],
+  data: null,
   error: '',
 };
 
@@ -24,7 +24,7 @@ const recipeReducer = (state = initailState, action) => {
     case FETCH_RECIPE_FAILURE:
       return {
         loading: true,
-        data: [],
+        data: null,
         error: action.payload,
       };
 

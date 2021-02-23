@@ -1,19 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchCat, changeFilter } from '../redux/actions';
+import { fetchCat, fetchMenu, changeFilter, changeCat } from '../redux/actions';
 import CategoryFilter from '../components/CategoryFilter';
-import CatDisplay from '../components/CatDisplay'
+import MenuDisplay from '../components/MenuDisplay'
 
-function CatContainer({catData, filter, fetchCat, changeCategoryFilter}) {
+function CatContainer({catData, menuData, filter, fetchCat, fetchMenu, changeCategoryFilter}) {
     const filteredCat = () => {
         console.log("filteredCat",catData.data);
+
         console.log("filter ",filter, filter.filter);
+
         console.log(filter.filter.toString() !== 'All');
+
         if (String(filter.filter) !== "All") {
           console.log("data",catData.data[1].strCategory);
-          console.log("inside if filter", catData.data.filter(cat => cat.strCategory === filter));
-          return catData.data.filter(cat => cat.strCategory.category === filter);
+          const dataFiltered  = catData.data.filter(cat => cat.strCategory === filter.filter);
+          console.log("inside if filter", dataFiltered);
+          return dataFiltered;
         }
         console.log("all cats", catData.data);
         return catData.data;
@@ -24,11 +28,19 @@ function CatContainer({catData, filter, fetchCat, changeCategoryFilter}) {
           return <h1>{cat.strCategory}</h1>
     }
 
+    const callMenu = menu => {
+      console.log("callMenu", menu);
+      return <MenuDisplay menu={menu} />
+}
+
     const changeFilter = key => {
       changeCategoryFilter(key);
+      console.log("filter key", key.toString());
+      fetchMenu(key);
     };
 
     const allCategories= catData.data.map(x => x.strCategory);
+    console.log("allcaategories at begining", catData.data);
 
     useEffect(() => { fetchCat() },[]);
 
@@ -38,10 +50,11 @@ function CatContainer({catData, filter, fetchCat, changeCategoryFilter}) {
         <h2>{catData.error}</h2>
     ) : ( 
       <div>
-        <CategoryFilter updateFilter={changeFilter} categories={allCategories} /> 
-        <div>
-          <h1>call filtered cat</h1>
-          {filteredCat().map(callCategory)}
+        <header>
+          <CategoryFilter updateFilter={changeFilter} categories={allCategories} />
+        </header>
+        <div className="menu-display">
+          {menuData.data.map(callMenu)}
         </div>
       </div>
     )
@@ -50,6 +63,7 @@ function CatContainer({catData, filter, fetchCat, changeCategoryFilter}) {
 const mapStateToProps = (state, ownProps) => {
     return {
         catData: state.cat,
+        menuData: state.menu,
         filter: state.filter  
     }
 }
@@ -59,8 +73,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         fetchCat: () => {
             dispatch(fetchCat())
         },
+        fetchMenu: category => {
+          dispatch(fetchMenu(category))
+        },
         changeCategoryFilter: category => {
           dispatch(changeFilter(category));
+         // dispatch(changeCat(category));
         },
     }
 }

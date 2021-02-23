@@ -14,13 +14,16 @@ import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from
     payload: err,
   });
   
-  const recipeFetch = title => dispatch => {
+  const recipeFetch = recipe => dispatch => {
+    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`;
+    console.log("recipeFetch", recipe, "url ", url);
     dispatch(fetchrecipeRequest());
-    console.log('url recipe', `https://www.themealdb.com/api/json/v1/1/search.php?s=${title}`);
   
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${title}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`)
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         dispatch(fetchrecipeSuccess(data));
       })
       .catch(err => {
@@ -28,7 +31,5 @@ import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from
       });
   };
   
-  export {
-    fetchrecipeRequest, fetchrecipeSuccess, fetchrecipeFailure, recipeFetch,
-  };
+  export { fetchrecipeRequest, fetchrecipeSuccess, fetchrecipeFailure, recipeFetch, };
   
