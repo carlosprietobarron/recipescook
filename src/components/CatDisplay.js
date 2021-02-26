@@ -1,10 +1,11 @@
 import React from 'react'
 
 function CatDisplay({cat}) {
+    console.log("catdisplay", cat);
     return (
         <div className="cat-card">
            <div className="cat-card-head">
-            <img className="cat-card-img" src="{cat.strCategoryThumb}" alt="categpry"/>
+            <img className="cat-card-img" src={cat.strCategoryThumb} alt="categpry"/>
            </div>
            <div className="cat-card-data">
              <div className="cat-card-catname">

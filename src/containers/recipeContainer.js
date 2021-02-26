@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { recipeFetch } from '../redux/actions';
 import RecipeDisplay from '../components/RecipeDisplay'
+import { Link } from 'react-router-dom'
 
 function RecipeContainer( props ) {
     const { recipe, recipeFetch } = props
@@ -23,6 +24,14 @@ function RecipeContainer( props ) {
         <h2>{recipe.error}</h2>
     ) : ( 
       <div>
+        <div className="recipe-header">
+          <div className="recipe-title">
+            <h2>{params.recipe}</h2>
+          </div>
+          <div>
+            <Link to="/" className="recipe-link">Home</Link>
+          </div>
+        </div>
         <div className="recipe-display">
           {callRecipe(recipe.data)}
         </div>

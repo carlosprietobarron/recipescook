@@ -1,11 +1,32 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCat, fetchMenu, changeFilter, changeCat } from '../redux/actions';
 import CategoryFilter from '../components/CategoryFilter';
 import MenuDisplay from '../components/MenuDisplay'
+import CatDisplay from '../components/CatDisplay'
 
-function CatContainer({catData, menuData, filter, fetchCat, fetchMenu, changeCategoryFilter}) {
+function CatContainer(props) {
+    const {catData, menuData, filter, fetchCat, fetchMenu, changeCategoryFilter} = props;
+    //const { returnCat } = props;
+
+    const  [cat, setCat]  = useState({
+      strCategory: 'Beef',
+      strCategoryDescription: 'Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistoric times.[1] Beef is a source of high-quality protein and essential nutrients.[2]',
+      strCategoryThumb: 'https://www.themealdb.com/images/category/beef.png',
+    });
+
+    // console.log("Cat...", cat);
+
+    const returnCat = category=> {
+      console.log("Returned Cat to app", category);
+      setCat({
+        strCategory: category.strCategory,
+        strCategoryDescription: category.strCategoryDescription,
+        strCategoryThumb: category.strCategoryThumb,
+      })
+    };
+    
     const filteredCat = () => {
         console.log("filteredCat",catData.data);
 
@@ -31,18 +52,26 @@ function CatContainer({catData, menuData, filter, fetchCat, fetchMenu, changeCat
     const callMenu = menu => {
       console.log("callMenu", menu);
       return <MenuDisplay menu={menu} />
-}
+    }
+
+    const result = key => catData.data.find(obj => {
+      return obj.strCategory === key;
+    });
+
+
 
     const changeFilter = key => {
       changeCategoryFilter(key);
       console.log("filter key", key.toString());
       fetchMenu(key);
+      returnCat(result(key));
     };
 
     const allCategories= catData.data.map(x => x.strCategory);
     console.log("allcaategories at begining", catData.data);
 
     useEffect(() => { fetchCat() },[]);
+    useEffect(() => { fetchMenu("Beef") },[]);
 
     return catData.loading ? (
         <h2>Data loading</h2>
@@ -50,8 +79,13 @@ function CatContainer({catData, menuData, filter, fetchCat, fetchMenu, changeCat
         <h2>{catData.error}</h2>
     ) : ( 
       <div>
-        <header>
-          <CategoryFilter updateFilter={changeFilter} categories={allCategories} />
+        <header className="header-menu">
+          <div className="header-menu-category">
+            <CatDisplay cat={cat} />
+          </div>
+          <div className="header-menu-filter">
+            <CategoryFilter updateFilter={changeFilter} categories={allCategories} />
+          </div>
         </header>
         <div className="menu-display">
           {menuData.data.map(callMenu)}

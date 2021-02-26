@@ -19,7 +19,6 @@ import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from
     console.log("recipeFetch", recipe, "url ", url);
     dispatch(fetchrecipeRequest());
   
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`)
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`)
       .then(response => response.json())
       .then(data => {
