@@ -1,15 +1,17 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import propTypes from 'prop-types';
 
-function CategoryFilter({categories, updateFilter}) {
+function CategoryFilter({ categories, updateFilter }) {
   const allCategories = [...categories];
-  
+
   const handleChange = e => {
     updateFilter(e.target.value);
   };
 
-  const MakeCategory = cat => <option id={cat} key={cat} >{cat}</option>;
-  console.log("allCategories", categories);
+  const MakeCategory = cat => <option id={cat} key={cat}>{cat}</option>;
+  console.log('allCategories', categories);
   return (
     <div>
       <form>
@@ -22,6 +24,7 @@ function CategoryFilter({categories, updateFilter}) {
 }
 
 CategoryFilter.propTypes = {
+  categories: propTypes.any,
   updateFilter: propTypes.func.isRequired,
 };
 

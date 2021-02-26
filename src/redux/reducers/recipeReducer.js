@@ -1,4 +1,4 @@
-import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE, } from '../types/recipesTypes';
+import { FETCH_RECIPE_REQUEST, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE } from '../types/recipesTypes';
 
 const initailState = {
   loading: true,

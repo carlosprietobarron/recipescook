@@ -1,4 +1,4 @@
-import { FETCH_RECIPE_REQUEST } from '../types/menuTypes';
+import { FETCH_RECIPE_REQUEST } from '../types/recipesTypes';
 import menuReducer from './menuReducer';
 
 describe('Category reducer', () => {
