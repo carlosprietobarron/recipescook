@@ -8,7 +8,7 @@
 
 ## Live Demo
 
-[RecipeCook ON HEROKU](hhttps://tranquil-mesa-95078.herokuapp.com/)
+[RecipeCook ON HEROKU](https://tranquil-mesa-95078.herokuapp.com/)
 
 ## Author
 
