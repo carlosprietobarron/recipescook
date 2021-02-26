@@ -1,6 +1,41 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Built With
+
+- React
+- Redux
+- Javascript
+- CSS
+
+## Live Demo
+
+[RecipeCook ON HEROKU](hhttps://tranquil-mesa-95078.herokuapp.com/)
+
+## Author
+
+👤 Carlos Prieto Barron
+
+- Github: [@carlosprietobarron](https://github.com/carlosprietobarron)
+Linkedin: [Carlos Prieto Barrón](https://www.linkedin.com/in/carlosprietobarron/)
+## 🤝 Contributing
+
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.
 
 ## Available Scripts
 
