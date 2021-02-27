@@ -10,6 +10,10 @@
 
 [RecipeCook ON HEROKU](https://tranquil-mesa-95078.herokuapp.com/)
 
+## Video Presentation
+[App presentation and demo](https://www.loom.com/share/caa9e466aba145589986369afa982cfe)
+[Technical Aspects of App](https://www.loom.com/share/a0e65588799d425d979605dc06bc1b05)
+
 ## Author
 
 👤 Carlos Prieto Barron
