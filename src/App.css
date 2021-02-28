@@ -1,3 +1,4 @@
+/* stylelint-disable declaration-colon-space-after */
 .App {
   text-align: center;
 }
@@ -100,3 +101,4 @@
   width: 450px;
   height: 450px;
 }
+/* stylelint-enable declaration-colon-space-after */
