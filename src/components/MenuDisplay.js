@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -32,6 +31,14 @@ MenuDisplay.propTypes = {
     idMeal: PropTypes.string,
     strMeal: PropTypes.string,
     strMealThumb: PropTypes.string,
+  }),
+};
+
+MenuDisplay.defaultProps = {
+  menu: PropTypes.shape({
+    idMeal: '',
+    strMeal: '',
+    strMealThumb: '',
   }),
 };
 

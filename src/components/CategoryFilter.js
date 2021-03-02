@@ -1,5 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import propTypes from 'prop-types';
 
@@ -23,8 +21,12 @@ function CategoryFilter({ categories, updateFilter }) {
 }
 
 CategoryFilter.propTypes = {
-  categories: propTypes.any,
+  categories: propTypes.arrayOf(propTypes.string),
   updateFilter: propTypes.func.isRequired,
+};
+
+CategoryFilter.defaultProps = {
+  categories: [],
 };
 
 export default CategoryFilter;

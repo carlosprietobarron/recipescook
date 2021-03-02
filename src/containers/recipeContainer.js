@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable no-nested-ternary */
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/forbid-prop-types */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
@@ -52,7 +50,24 @@ const mapDispatchToProps = dispatch => ({
 });
 
 RecipeContainer.propTypes = {
-  recipe: PropTypes.any,
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.shape({
+      recipe: PropTypes.string,
+    }),
+  }),
+  recipe: PropTypes.object,
+  recipeFetch: PropTypes.func,
+};
+
+RecipeContainer.defaultProps = {
+  match: PropTypes.shape({
+    isExact: true,
+    params: PropTypes.shape({
+      recipe: '',
+    }),
+  }),
+  recipe: PropTypes.object,
   recipeFetch: PropTypes.func,
 };
 

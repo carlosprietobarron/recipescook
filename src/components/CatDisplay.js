@@ -1,5 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
@@ -22,7 +20,19 @@ function CatDisplay({ cat }) {
 }
 
 CatDisplay.propTypes = {
-  cat: PropTypes.any,
+  cat: PropTypes.shape({
+    strCategory: PropTypes.string,
+    strCategoryDescription: PropTypes.string,
+    strCategoryThumb: PropTypes.string,
+  }),
+};
+
+CatDisplay.defaultProps = {
+  cat: PropTypes.shape({
+    strCategory: '',
+    strCategoryDescription: '',
+    strCategoryThumb: '',
+  }),
 };
 
 export default CatDisplay;

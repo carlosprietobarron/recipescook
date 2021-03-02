@@ -1,5 +1,4 @@
 /* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/require-default-props */
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
@@ -83,9 +82,33 @@ const mapDispatchToProps = dispatch => ({
 });
 
 CatContainer.propTypes = {
-  loading: PropTypes.any,
-  catData: PropTypes.any,
-  menuData: PropTypes.any,
+  catData: PropTypes.shape({
+    data: PropTypes.array,
+    error: PropTypes.string,
+    loading: PropTypes.bool,
+  }),
+  menuData: PropTypes.shape({
+    data: PropTypes.array,
+    error: PropTypes.string,
+    loading: PropTypes.bool,
+  }),
+  fetchCat: PropTypes.func,
+  fetchMenu: PropTypes.func,
+  changeCategoryFilter: PropTypes.func,
+
+};
+
+CatContainer.defaultProps = {
+  catData: PropTypes.shape({
+    data: [],
+    error: '',
+    loading: false,
+  }),
+  menuData: PropTypes.shape({
+    data: [],
+    error: '',
+    loading: false,
+  }),
   fetchCat: PropTypes.func,
   fetchMenu: PropTypes.func,
   changeCategoryFilter: PropTypes.func,

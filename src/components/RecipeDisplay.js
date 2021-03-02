@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 /* eslint-disable react/forbid-prop-types */
 import { PropTypes } from 'prop-types';
 import React from 'react';
@@ -19,7 +18,11 @@ function RecipeDisplay({ menu }) {
 }
 
 RecipeDisplay.propTypes = {
-  menu: PropTypes.any,
+  menu: PropTypes.object,
+};
+
+RecipeDisplay.defaultProps = {
+  menu: null,
 };
 
 export default RecipeDisplay;
