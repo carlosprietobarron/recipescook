@@ -11,14 +11,12 @@ import RecipeDisplay from '../components/RecipeDisplay';
 
 function RecipeContainer(props) {
   const { recipe, recipeFetch } = props;
+
   const {
     match: { params },
   } = props;
-  console.log('parameters', params);
-  const callRecipe = recipe => {
-    console.log('callRecipe', recipe);
-    return <RecipeDisplay menu={recipe.meals[0]} />;
-  };
+
+  const callRecipe = recipe => <RecipeDisplay menu={recipe.meals[0]} />;
 
   useEffect(() => { recipeFetch(params.recipe); }, []);
 

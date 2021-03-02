@@ -11,7 +11,6 @@ function CategoryFilter({ categories, updateFilter }) {
   };
 
   const MakeCategory = cat => <option id={cat} key={cat}>{cat}</option>;
-  console.log('allCategories', categories);
   return (
     <div>
       <form>

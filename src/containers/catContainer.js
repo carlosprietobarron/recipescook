@@ -20,10 +20,7 @@ function CatContainer(props) {
     strCategoryThumb: 'https://www.themealdb.com/images/category/beef.png',
   });
 
-  // console.log("Cat...", cat);
-
   const returnCat = category => {
-    console.log('Returned Cat to app', category);
     setCat({
       strCategory: category.strCategory,
       strCategoryDescription: category.strCategoryDescription,
@@ -31,22 +28,17 @@ function CatContainer(props) {
     });
   };
 
-  const callMenu = menu => {
-    console.log('callMenu', menu);
-    return <MenuDisplay menu={menu} />;
-  };
+  const callMenu = menu => <MenuDisplay menu={menu} />;
 
   const result = key => catData.data.find(obj => obj.strCategory === key);
 
   const changeFilter = key => {
     changeCategoryFilter(key);
-    console.log('filter key', key.toString());
     fetchMenu(key);
     returnCat(result(key));
   };
 
   const allCategories = catData.data.map(x => x.strCategory);
-  console.log('allcaategories at begining', catData.data);
 
   useEffect(() => { fetchCat(); }, []);
   useEffect(() => { fetchMenu('Beef'); }, []);
@@ -87,7 +79,6 @@ const mapDispatchToProps = dispatch => ({
   },
   changeCategoryFilter: category => {
     dispatch(changeFilter(category));
-    // dispatch(changeCat(category));
   },
 });
 

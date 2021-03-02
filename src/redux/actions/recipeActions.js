@@ -15,14 +15,11 @@ const fetchrecipeFailure = err => ({
 });
 
 const recipeFetch = recipe => dispatch => {
-  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`;
-  console.log('recipeFetch', recipe, 'url ', url);
   dispatch(fetchrecipeRequest());
 
   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipe}`)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       dispatch(fetchrecipeSuccess(data));
     })
     .catch(err => {

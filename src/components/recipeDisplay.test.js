@@ -11,7 +11,6 @@ describe('MenuDisplay Component', () => {
       strInstructions: 'Recipe Instructions',
     };
     const container = shallow(<RecipeDisplay menu={menu} />);
-    console.log(container);
     const renderContainer = container.find('.recipe-card-img');
     expect(renderContainer.length).toEqual(1);
   });

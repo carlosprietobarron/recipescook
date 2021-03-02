@@ -4,7 +4,6 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 
 function CatDisplay({ cat }) {
-  console.log('catdisplay', cat);
   return (
     <div className="cat-card">
       <div className="cat-card-head">

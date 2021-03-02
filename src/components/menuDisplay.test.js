@@ -10,7 +10,6 @@ describe('MenuDisplay Component', () => {
       strMealThumb: 'testing thumb',
     };
     const container = shallow(<MenuDisplay menu={menu} />);
-    console.log(container);
     const renderContainer = container.find('.menu-card-img');
     expect(renderContainer.length).toEqual(1);
   });

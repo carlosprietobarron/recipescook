@@ -4,7 +4,6 @@ import { PropTypes } from 'prop-types';
 import React from 'react';
 
 function RecipeDisplay({ menu }) {
-  console.log('recipe', menu);
   return (
     <div className="recipe-card">
       <div className="recipe-card-head">

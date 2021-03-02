@@ -22,11 +22,9 @@ const changeCat = key => ({
 const fetchMenu = category => dispatch => {
   dispatch(fetchMenuRequest());
   const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
-  console.log(apiUrl);
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      console.log('fetchMnu success', data.meals);
       dispatch(fetchMenuSuccess(data.meals));
     })
     .catch(err => {
