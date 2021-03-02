@@ -28,7 +28,7 @@ function CatContainer(props) {
     });
   };
 
-  const callMenu = menu => <MenuDisplay menu={menu} />;
+  const callMenu = menu => <MenuDisplay key={menu.idMeal} menu={menu} />;
 
   const result = key => catData.data.find(obj => obj.strCategory === key);
 
