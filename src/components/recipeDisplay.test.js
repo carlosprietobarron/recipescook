@@ -15,18 +15,6 @@ describe('MenuDisplay Component', () => {
     expect(renderContainer.length).toEqual(1);
   });
 
-  it('should render a recipe name without errors', () => {
-    const menu = {
-      idMeal: '1',
-      strMeal: 'test meal',
-      strMealThumb: 'testing thumb',
-      strInstructions: 'Recipe Instructions',
-    };
-    const container = shallow(<RecipeDisplay menu={menu} />);
-    const renderContainer = container.find('.recipe-card-name');
-    expect(renderContainer.length).toEqual(1);
-  });
-
   it('should render a recipe card without errors', () => {
     const menu = {
       idMeal: '1',
