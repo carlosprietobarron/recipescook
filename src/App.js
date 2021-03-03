@@ -1,9 +1,18 @@
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import CatContainer from './containers/catContainer';
+import recipeContainer from './containers/recipeContainer';
 
 function App() {
   return (
     <div className="App">
-      <h1>Let's get started!</h1>
+      <div className="top-header">
+        <h1>Tasty World!</h1>
+      </div>
+      <Switch>
+        <Route path="/" component={CatContainer} exact />
+        <Route path="/recipes/:recipe" component={recipeContainer} />
+      </Switch>
     </div>
   );
 }
