@@ -10,9 +10,15 @@
 
 [RecipeCook ON HEROKU](https://tranquil-mesa-95078.herokuapp.com/)
 
+## Screen shot
+![screenshot](./screenshot.png)
+
 ## Video Presentation
 [App presentation and demo](https://www.loom.com/share/caa9e466aba145589986369afa982cfe)
+
 [Technical Aspects of App](https://www.loom.com/share/a0e65588799d425d979605dc06bc1b05)
+
+[How I used Redux in this app](https://www.loom.com/share/f5e4acf4db264cf5ae04409fe9cecc8e)
 
 ## Author
 
